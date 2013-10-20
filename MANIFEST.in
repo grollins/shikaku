@@ -1,0 +1,13 @@
+include MANIFEST.in
+include README.md
+include run_tests.sh
+include *.txt
+include *.rst
+# Top-level build script
+include setup.py
+# All source files
+recursive-include shikaku *
+# Exclude what we don't want to include
+prune doc/build
+prune doc/source/generated
+global-exclude *.pyc *~ *.bak *.swp *.pyo
