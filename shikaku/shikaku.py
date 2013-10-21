@@ -32,6 +32,7 @@ class MultipanelFigure(object):
         self.current_panel_id = 1
         self.xpad_factor = 0.05
         self.ypad_factor = 0.05
+        self.origin_padding = False
 
     def get_new_panel(self):
         """
@@ -61,7 +62,10 @@ class MultipanelFigure(object):
         """
         for loc, spine in panel.spines.items():
             if loc in spines:
-                spine.set_position(('outward',10)) # outward by 10 points
+                if self.origin_padding:
+                    spine.set_position(('outward',10)) # outward by 10 points
+                else:
+                    pass
                 spine.set_smart_bounds(False)
             else:
                 spine.set_color('none') # don't draw spine
